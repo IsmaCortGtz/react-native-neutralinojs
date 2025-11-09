@@ -1,0 +1,29 @@
+# Developer tools' files
+.lite_workspace.lua
+node_modules/
+neutralino/
+*.tgz
+
+# Neutralinojs binaries and builds
+/bin
+/dist
+/log
+/.tmp
+/resources
+
+# Neutralinojs client (minified)
+neutralino.js
+
+# Neutralinojs related files
+.storage
+*.log
+
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
