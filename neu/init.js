@@ -1,13 +1,16 @@
-const fs = require('fs');
-const path = require('path');
 const { neuExists } = require('./exists');
-const { log } = require('../utils/log');
-const root = process.cwd();
+const { execSync } = require('child_process');
+const { log, error } = require('../utils/log');
 
 module.exports = async function initializeNeuProject() {
   if (neuExists()) return log('Neutralino project already initialized.');
   log('Initializing Neutralino project...');
     
-  fs.mkdirSync(path.join(root, 'neutralino', 'log'), { recursive: true });
-  fs.writeFileSync(path.join(root, 'neutralino', 'neutralino.config.json'), ' ');
+  try {
+    execSync('neu create neutralino --template=IsmaCortGtz/neutralnojs-react-native', { stdio: 'pipe' });
+    log('Neutralino project initialized successfully!');
+  } catch (e) {
+    error('Error initializing Neutralino project:', e?.stderr?.toString() || e.message);
+    process.exit(1);
+  }
 }

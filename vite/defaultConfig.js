@@ -7,6 +7,9 @@ module.exports = async function defaultViteConfig() {
 
     return {
       root: 'neutralino',
+      build: {
+        outDir: 'vite-dist',
+      },
       logLevel: 'warn',
       server: { port: 8082 },
       plugins: [neuAuthPlugin(), netAuthProxyPlugin(), reactNativeNeu(), rnw()],

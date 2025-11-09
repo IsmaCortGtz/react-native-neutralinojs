@@ -23,7 +23,7 @@ module.exports = async function openNeu(url) {
 
   // Change current directory to /neutralino and spawn neu process
   process.chdir(path.join(root, 'neutralino'));
-  const neuProcess = spawn('neu', ['run', '--', `--url=${newUrl.toString()}`, `--port=${port}`, '--logging-write-to-log-file=false', '--logging-enabled=true'], { stdio: ['ignore', out, err] });
+  const neuProcess = spawn('neu', ['run', '--', `--url=${newUrl.toString()}`, `--port=${port}`, '--logging-write-to-log-file=false', '--logging-enabled=true', '--window-enable-inspector=true'], { stdio: ['ignore', out, err] });
 
   neuProcess.on('spawn', () => {
     log(`NeutralinoJS app started with UID: ${uuid}`);
