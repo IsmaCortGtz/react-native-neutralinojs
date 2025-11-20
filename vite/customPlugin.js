@@ -1,6 +1,7 @@
-const fs = require('fs/promises');
-const flowRemoveTypes = require('flow-remove-types');
 const path = require('path');
+const react = require('@vitejs/plugin-react');
+const commonjs = require('vite-plugin-commonjs').default;
+const { esbuildFlowPlugin, flowPlugin } = require('@bunchtogether/vite-plugin-flow');
 
 const development = process.env.NODE_ENV === 'development';
 const extensions = [
@@ -10,40 +11,11 @@ const extensions = [
 	'.json',
 ];
 
-const reactNativeFlowJsxPathPattern = /\.(js|flow)$/;
-const reactNativeFlowJsxLoader = 'jsx';
-
-const flowPragmaPattern = /@flow\b/;
-const useClientPragmaPattern = /['"]use client['"]/;
-
-const jsxElementPattern = /<([A-Za-z][A-Za-z0-9]*)\b[^>]*>([\s\S]*?)<\/\1>/;
-const jsxSelfClosingPattern = /<([A-Za-z][A-Za-z0-9]*)\b[^>]*\/?>/;
-const jsxFragmentPattern = /<>([\s\S]*?)<\/>/;
-
-const esbuildPlugin = () => ({
-	name: 'react-native-neu',
-	setup: (build) => {
-		build.onLoad({ filter: reactNativeFlowJsxPathPattern }, async (args) => {
-			let contents = await fs.readFile(args.path, 'utf-8')
-
-			if (flowPragmaPattern.test(contents)) {
-				const transformed = flowRemoveTypes(contents)
-				contents = transformed.toString()
-			}
-
-			return {
-				contents,
-				loader: reactNativeFlowJsxLoader,
-			}
-		})
-	},
-});
-
 const reactNativeNeu = () => {
   const shimPath = path.dirname(require.resolve('@neutralinojs/react-native'));
   const newScreenPath = path.join(path.dirname(require.resolve('@neutralinojs/react-native')), 'new-app-screen');
 	
-	return {
+  const rnwPlugin = {
 		enforce: 'pre',
 		name: 'react-native-neu',
 
@@ -56,11 +28,11 @@ const reactNativeNeu = () => {
 			},
 			build: {
 				commonjsOptions: {
-					extensions,
 					transformMixedEsModules: true,
 				},
 			},
       resolve: {
+        extensions,
         alias: [
           { find: /^@react-native\/new-app-screen$/, replacement: newScreenPath },
           { find: /^react-native$/, replacement: shimPath },
@@ -69,52 +41,32 @@ const reactNativeNeu = () => {
       },
 			optimizeDeps: {
 				esbuildOptions: {
-					plugins: [esbuildPlugin()],
+					plugins: [
+            esbuildFlowPlugin(
+              new RegExp(/\.(flow|jsx?)$/),
+              (_path) => "jsx",
+            ),
+          ],
 					resolveExtensions: extensions,
+          loader: {
+            ".js": "jsx",
+          },
 				},
 			},
 		}),
-
-		async transform(code, id) {
-			id = id.split('?')[0]
-			if (!reactNativeFlowJsxPathPattern.test(id)) return
-			let map = null
-
-			if (flowPragmaPattern.test(code)) {
-				const transformed = flowRemoveTypes(code)
-				code = transformed.toString()
-				map = {
-					file: id,
-					toUrl: () => id,
-					...transformed.generateMap(),
-				}
-			}
-
-			if (jsxElementPattern.test(code) || jsxSelfClosingPattern.test(code) || jsxFragmentPattern.test(code)) {
-				const vite = await import('vite');
-				const { transformWithEsbuild } = vite;
-
-				const result = await transformWithEsbuild(code, id, {
-					loader: reactNativeFlowJsxLoader,
-					tsconfigRaw: {
-						compilerOptions: {
-							jsx: 'react-jsx',
-						},
-					},
-				})
-
-				code = result.code
-				map = result.map
-
-				// Do not include source maps for files that are using 'use client' pragma since these break the esbuild mappings (https://github.com/vitejs/vite/issues/15012)
-				if (useClientPragmaPattern.test(code)) {
-					map = null
-				}
-			}
-
-			return { code, map }
-		},
 	};
+
+  return [
+    flowPlugin({
+      exclude: /\/node_modules\/(?!react-native|@react-native|expo|@expo)/,
+    }),
+    commonjs(),
+    rnwPlugin,
+    react({
+      jsxRuntime: 'automatic',
+      exclude: /\/node_modules\/(?!react-native|@react-native|expo|@expo)/,
+    }),
+  ];
 };
 
 module.exports = reactNativeNeu;
