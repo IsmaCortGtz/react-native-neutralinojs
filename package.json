@@ -1,6 +1,6 @@
 {
-  "name": "react-native-neutralino",
-  "version": "0.1.0",
+  "name": "react-native-neutralinojs",
+  "version": "1.0.0",
   "description": "React Native CLI integration for Neutralinojs",
   "license": "MIT",
   "type": "commonjs",
@@ -27,7 +27,7 @@
     "url": "git+https://github.com/IsmaCortGtz/react-native-neutralinojs.git"
   },
   "files": [
-    "react-native.config.js",
+    "react-native.config.cjs",
     "dist/",
     "exports/"
   ],
