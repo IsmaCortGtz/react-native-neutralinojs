@@ -11,6 +11,6 @@ export function getFiglet() {
 }
 
 export function printHeader() {
-    console.log('\n' + chalk.yellow.bold('Welcome to @neutralinojs/react-native'))
+    console.log('\n' + chalk.yellow.bold('Welcome to react-native-neutralinojs'))
     console.log(chalk.yellow(getFiglet()));
 }

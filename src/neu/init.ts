@@ -7,7 +7,7 @@ export default async function initializeNeuProject() {
   log('Initializing Neutralino project...');
     
   try {
-    execSync('neu create neutralino --template=IsmaCortGtz/neutralinojs-react-native', { stdio: 'pipe' });
+    execSync('npx neu create neutralino --template=IsmaCortGtz/react-native-neutralinojs', { stdio: 'pipe' });
     log('Neutralino project initialized successfully!');
   } catch (e: any) {
     error('Error initializing Neutralino project:', e?.stderr?.toString() || e?.message || e);

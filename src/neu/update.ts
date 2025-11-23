@@ -16,7 +16,7 @@ export default async function updateNeuProject() {
     const err = fs.openSync(path.join(root, 'neutralino', 'log', 'cli.err.log'), 'a');
 
     process.chdir(neuPath);
-    execSync('neu update', { stdio: ['ignore', out, err] });
+    execSync('npx neu update', { stdio: ['ignore', out, err] });
 
     log('Neutralino project updated successfully!');
   } catch (_e: any) {

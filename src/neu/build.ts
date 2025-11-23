@@ -26,7 +26,7 @@ export default async function buildNeu() {
     const argv = process.argv.slice(4).join(' ');
 
     process.chdir(neuProjectPath);
-    execSync(`neu build ${argv}`, { stdio: 'pipe' });
+    execSync(`npx neu build ${argv}`, { stdio: 'pipe' });
 
     log('Neutralino app built successfully!');
 

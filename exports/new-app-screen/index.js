@@ -10,7 +10,7 @@ import {
   TouchableHighlight,
   View,
   useWindowDimensions,
-} from '@neutralinojs/react-native';
+} from 'react-native-neutralinojs';
 
 const COLORS = {
   light: {

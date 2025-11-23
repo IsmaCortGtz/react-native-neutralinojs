@@ -13,8 +13,8 @@ const extensions = [
 ];
 
 export default function reactNativeNeu() {
-  const shimPath = path.dirname(require.resolve('@neutralinojs/react-native'));
-  const newScreenPath = path.join(path.dirname(require.resolve('@neutralinojs/react-native')), 'new-app-screen');
+  const shimPath = path.dirname(require.resolve('react-native-neutralinojs'));
+  const newScreenPath = path.join(path.dirname(require.resolve('react-native-neutralinojs')), 'new-app-screen');
   
   const rnwPlugin = {
     enforce: 'pre',
