@@ -1,6 +1,6 @@
 {
   "name": "react-native-neutralinojs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Native CLI integration for Neutralinojs",
   "license": "MIT",
   "type": "commonjs",
