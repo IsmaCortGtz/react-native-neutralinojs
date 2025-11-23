@@ -1,12 +1,32 @@
 # React Native for NeutralinoJS
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Made with TypeScript](https://img.shields.io/badge/made%20with-TypeScript-blue.svg) ![React Native Library](https://img.shields.io/badge/library-React%20Native-blue.svg)
+
 Unofficial [`neutralinojs`](https://neutralino.js.org/) integration with the [`react-native-cli`](https://github.com/react-native-community/cli).
 
 This tool allows you to export your `react-native` apps to a lightweight, cross-platform desktop application using `neutralinojs`. It serves as an alternative to heavier solutions like `react-native-windows` and `react-native-macos`.
 
 ## Installation
 
-1.  **Add the package to your project:**
+1.  **Install `react-dom` (Exact Version Match):**
+
+    This is the most critical step. The version of `react-dom` **must exactly match** the version of `react` installed in your project. A mismatch will cause your app to crash.
+
+    First, check the exact `react` version in your `package.json` or lock file. Then, install the corresponding `react-dom` version using the `--save-exact` (for npm) or `--exact` (for Yarn) flag. This is crucial because package managers might otherwise install a newer patch version that is incompatible.
+
+    For example, if your project uses `react` version `18.2.0`, you must install `react-dom@18.2.0`.
+
+    Using npm:
+    ```bash
+    npm install react-dom@<EXACT_REACT_VERSION> --save-exact
+    ```
+
+    Using Yarn:
+    ```bash
+    yarn add react-dom@<EXACT_REACT_VERSION> --exact
+    ```
+
+2.  **Add the package to your project:**
 
     Using npm:
     ```bash
@@ -18,9 +38,9 @@ This tool allows you to export your `react-native` apps to a lightweight, cross-
     yarn add react-native-neutralinojs
     ```
 
-2.  **Install Peer Dependencies:**
+3.  **Install Peer Dependencies:**
 
-    To avoid version conflicts, especially with Yarn, it's important to install the required peer dependencies.
+    Finally, install the other required peer dependencies. While some package managers might install these automatically, others do not. To be safe and avoid potential issues, it's recommended to run the installation command manually.
 
     Using npm:
     ```bash
@@ -30,20 +50,6 @@ This tool allows you to export your `react-native` apps to a lightweight, cross-
     Using Yarn:
     ```bash
     yarn add @neutralinojs/lib react-native-web
-    ```
-
-3.  **Install `react-dom`:**
-
-    The version of `react-dom` must match the version of `react` used in your React Native project. Check your project's `package.json` for the `react` version. For example, if your project uses `react@18.2.0`, you should install `react-dom@18.2.0`.
-
-    If your project uses a newer version of React, like React 19, you might need a specific version like `react-dom@19.1.1` or `react-dom@19.2.0`. Always ensure the versions match.
-
-    ```bash
-    npm install react-dom@<your-react-version>
-    ```
-    or
-    ```bash
-    yarn add react-dom@<your-react-version>
     ```
 
 ## Usage
@@ -119,3 +125,7 @@ Or to build the application:
 ```bash
 npm run build:neu
 ```
+
+## License
+
+This project is licensed under the MIT License.
