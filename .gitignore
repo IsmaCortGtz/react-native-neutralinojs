@@ -1,6 +1,7 @@
 # Dependency directories
 node_modules/
 neutralino/
+dist/
 
 # Logs
 logs

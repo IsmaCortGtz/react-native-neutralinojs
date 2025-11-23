@@ -1,7 +1,7 @@
-const reactNativeNeu = require('./customPlugin.js');
-const { netAuthProxyPlugin, neuAuthPlugin } = require('./neuAuthPlugin.js');
+import reactNativeNeu from '@/vite/customPlugin';
+import { netAuthProxyPlugin, neuAuthPlugin } from '@/vite/neuAuthPlugin';
 
-module.exports = async function defaultViteConfig() {
+export default async function defaultViteConfig() {
   try {
     return {
       root: 'neutralino',

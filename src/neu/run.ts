@@ -1,17 +1,11 @@
-const { default: chalk } = require('chalk');
-const initNeu = require('../neu/init.js');
-const openNeu = require('../neu/open.js');
-const loadViteConfig = require('../vite/loadConfig.js');
-const defaultViteConfig = require('../vite/defaultConfig.js');
-const { printHeader } = require('../utils/art.js');
-const { log, warn, raw } = require('../utils/log.js');
+import chalk from 'chalk';
+import openNeu from '@/neu/open';
+import loadViteConfig from '@/vite/loadConfig';
+import defaultViteConfig from '@/vite/defaultConfig';
+import { log, warn, raw } from '@/utils/log';
+import { NeutralinoDevServer } from '@/types/Vite';
 
-const root = process.cwd();
-
-module.exports = async function runNeu() {
-  printHeader();
-  await initNeu();
-
+export default async function runNeu() {
   const vite = await import('vite');
   const userConfig = await loadViteConfig('neutralino');
   const config = vite.mergeConfig(await defaultViteConfig(), userConfig);
@@ -21,7 +15,7 @@ module.exports = async function runNeu() {
   raw('');
   raw(chalk.green(`Starting Neu development server on ${url}\n`));
 
-  const server = await vite.createServer(config);
+  const server = await vite.createServer(config) as NeutralinoDevServer;
   server.neutralinoAuthPorts = {};
   await server.listen();
 
@@ -35,15 +29,16 @@ module.exports = async function runNeu() {
   process.stdin.setEncoding('utf8');
   
   process.stdin.on('data', async (key) => {
-    if (key === '\u0003') process.exit(); // CTRL+C
-    if (key === 'r') {
+    const keyStr = String(key);
+    if (keyStr === '\u0003') process.exit(); // CTRL+C
+    if (keyStr === 'r') {
       log('Reloading connected app(s)...');
       if (server.ws.clients.size < 1) return warn('No app(s) connected to reload. Make sure you have the app running.');
       server.ws.send({
         type: 'full-reload',
       });
     }
-    if (key === 'o') {
+    if (keyStr === 'o') {
       log('Opening new app window...');
       const newNeu = await openNeu(url);
       server.neutralinoAuthPorts[newNeu.uuid] = newNeu.port;

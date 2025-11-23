@@ -1,10 +1,11 @@
-const { platform } = require('os');
-const { exec } = require('child_process');
-const { warn } = require('./log.js');
+import { platform } from 'node:os';
+import { exec } from 'node:child_process';
+import { warn } from '@/utils/log';
 
-function open(url) {
+export default function open(url: string): void {
   const os = platform();
   let command = '';
+  
   switch (os) {
     case 'win32':
       command = `start ${url}`;
@@ -22,5 +23,3 @@ function open(url) {
 
   exec(command);
 }
-
-module.exports = open;

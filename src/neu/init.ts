@@ -1,16 +1,16 @@
-const { neuExists } = require('./exists');
-const { execSync } = require('child_process');
-const { log, error } = require('../utils/log');
+import { execSync } from "node:child_process";
+import { neuExists } from "@/neu/exists";
+import { log, error } from "@/utils/log";
 
-module.exports = async function initializeNeuProject() {
+export default async function initializeNeuProject() {
   if (neuExists()) return log('Neutralino project already initialized.');
   log('Initializing Neutralino project...');
     
   try {
     execSync('neu create neutralino --template=IsmaCortGtz/neutralinojs-react-native', { stdio: 'pipe' });
     log('Neutralino project initialized successfully!');
-  } catch (e) {
-    error('Error initializing Neutralino project:', e?.stderr?.toString() || e.message);
+  } catch (e: any) {
+    error('Error initializing Neutralino project:', e?.stderr?.toString() || e?.message || e);
     process.exit(1);
   }
 }

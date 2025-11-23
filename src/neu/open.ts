@@ -1,12 +1,13 @@
-const fs = require('fs');
-const path = require('path');
-const crypto = require('crypto');
-const findPort = require('../utils/findPort.js');
-const { spawn } = require('child_process');
-const { log, error } = require('../utils/log.js');
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { spawn } from 'node:child_process';
+import { log, error } from '@/utils/log';
+import findPort from '@/utils/findPort';
 const root = process.cwd();
 
-module.exports = async function openNeu(url) {
+export default async function openNeu(url: string): Promise<{ uuid: string; port: number }> {
+
   // Check if neutralino.config.json exists
   if (!fs.existsSync(path.join(root, 'neutralino', 'neutralino.config.json'))) {
     error('neutralino.config.json not found in the /neutralino directory.');

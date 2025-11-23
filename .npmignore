@@ -1,3 +1,9 @@
-test.js
 node_modules/
-neutralino/
+src/
+
+.gitignore
+neutralino.config.json
+rolldown.config.mjs
+tsconfig.json
+
+*.tgz

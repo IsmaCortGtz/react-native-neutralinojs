@@ -1,11 +1,12 @@
-const path = require('path');
-const { execSync } = require('child_process');
-const init = require('./init');
-const { log } = require('../utils/log.js');
-const { neuExists, binExists } = require('./exists');
+import path from 'node:path';
+import fs from 'node:fs';
+import { execSync } from 'node:child_process';
+import init from '@/neu/init';
+import { log } from '@/utils/log';
+import { neuExists } from '@/neu/exists';
 const root = process.cwd();
 
-module.exports = async function updateNeuProject() {
+export default async function updateNeuProject() {
   if (!neuExists()) await init();
   log('Updating Neutralino project...\n\n');
   
@@ -18,7 +19,7 @@ module.exports = async function updateNeuProject() {
     execSync('neu update', { stdio: ['ignore', out, err] });
 
     log('Neutralino project updated successfully!');
-  } catch (error) {
+  } catch (_e: any) {
     log('Error updating Neutralino project. Please check the cli log files in the neutralino directory for more details.');
   } finally {
     process.chdir(root);

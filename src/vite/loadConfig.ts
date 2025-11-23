@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'node:fs';
+import path from 'node:path';
 const root = process.cwd();
 
 const viteConfigNames = [
@@ -11,7 +11,7 @@ const viteConfigNames = [
   'vite.config.tsx',
 ];
 
-module.exports = async function loadViteConfig(dir = '.') {
+export default async function loadViteConfig(dir: string = '.') {
   try {
     const configPath = viteConfigNames.find(f => fs.existsSync(path.join(root, dir, f)));
     if (!configPath) return {};
@@ -23,7 +23,7 @@ module.exports = async function loadViteConfig(dir = '.') {
     );
 
     return result?.config || {};
-  } catch (error) {
+  } catch {
     return {};
   }
 }

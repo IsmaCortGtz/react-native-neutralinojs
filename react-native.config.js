@@ -10,25 +10,25 @@ module.exports = {
   commands: [
     {
       name: 'init-neu',
-      func: require('./cli/initNeu.js')
+      func: require('./dist/cli/init-neu.js')
     },
     {
       name: 'update-neu',
-      func: require('./cli/updateNeu.js')
+      func: require('./dist/cli/update-neu.js')
     },
     {
       name: 'run-neu',
-      func: require('./cli/runNeu.js')
+      func: require('./dist/cli/run-neu.js')
     },
     {
       name: 'build-neu',
-      func: require('./cli/buildNeu.js')
+      func: require('./dist/cli/build-neu.js')
     }
   ],
   healthChecks: [
     {
       label: 'Neutralino',
-      healthchecks: require('./neu/doctor.js')
+      healthchecks: require('./dist/cli/doctor.js')
     }
   ]
 }
