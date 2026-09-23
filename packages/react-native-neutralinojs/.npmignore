@@ -1,0 +1,9 @@
+node_modules/
+src/
+
+.gitignore
+neutralino.config.json
+rolldown.config.mjs
+tsconfig.json
+
+*.tgz
