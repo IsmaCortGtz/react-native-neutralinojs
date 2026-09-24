@@ -7,15 +7,15 @@ export const Platform = {
     return process.env.NODE_ENV === 'test';
   },
   get Version() {
-    return '0.0.0';
+    return '1.0.2';
   }
 };
 
 class ReactNativeVersion {
-  static major = 0;
-  static minor = 1;
-  static patch = 0;
-  static prerelease = 'neutralino';
+  static major = 1;
+  static minor = 0;
+  static patch = 2;
+  static prerelease = null;
   static getVersionString() {
     return `${this.major}.${this.minor}.${this.patch}${this.prerelease != null ? `-${this.prerelease}` : ''}`;
   }

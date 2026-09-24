@@ -4,18 +4,18 @@ module.exports.Platform = {
   OS: 'neu',
   select: (obj) => ('neu' in obj ? obj.neu : obj.default),
   get isTesting() { return process.env.NODE_ENV === 'test'; },
-  get Version() { return '0.0.0'; },
+  get Version() { return '1.0.2'; },
 };
 
 module.exports.ReactNativeVersion = class {
-  static major = 0;
-  static minor = 1;
-  static patch = 0;
-  static prerelease = 'neutralino';
+  static major = 1;
+  static minor = 0;
+  static patch = 2;
+  static prerelease = null;
   static getVersionString() {
     return `${this.major}.${this.minor}.${this.patch}${this.prerelease != null ? `-${this.prerelease}` : ''}`;
   }
-}
+};
 
 module.exports.version = {
   major: module.exports.ReactNativeVersion.major,

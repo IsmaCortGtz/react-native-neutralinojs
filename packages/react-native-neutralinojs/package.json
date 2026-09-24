@@ -8,9 +8,10 @@
   "main": "exports/index.cjs",
   "module": "exports/index.js",
   "scripts": {
+    "build:version": "node scripts/build-version.mjs",
     "build:ts": "tsc",
     "build:bundle": "rolldown -c",
-    "build": "run-s build:ts build:bundle",
+    "build": "run-s build:version build:ts build:bundle",
     "prepublishOnly": "run-s build"
   },
   "exports": {
