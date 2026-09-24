@@ -2,8 +2,30 @@
   "name": "@react-native-neutralinojs/new-app-screen",
   "version": "0.0.0",
   "description": "Standalone desktop-adapted welcome and template screens for React Native Neutralinojs apps",
+  "keywords": [
+    "desktop",
+    "neu",
+    "neutralinojs",
+    "new-app-screen",
+    "react-native",
+    "template",
+    "welcome-screen"
+  ],
   "license": "MIT",
-  "packageManager": "pnpm@12.6.0",
+  "author": {
+    "name": "Ismael Cortés Gutiérrez",
+    "url": "https://github.com/IsmaCortGtz/react-native-neutralinojs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsmaCortGtz/react-native-neutralinojs.git",
+    "directory": "packages/new-app-screen"
+  },
+  "files": [
+    "dist",
+    "assets",
+    "README.md"
+  ],
   "type": "module",
   "main": "./dist/index.jsx",
   "module": "./dist/index.jsx",
@@ -16,29 +38,22 @@
     },
     "./package.json": "./package.json"
   },
-  "files": [
-    "dist",
-    "assets",
-    "README.md"
-  ],
-  "author": {
-    "name": "Ismael Cortés Gutiérrez",
-    "url": "https://github.com/IsmaCortGtz/react-native-neutralinojs"
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "vitest run --project new-app-screen:unit",
+    "test:e2e": "vitest run --project new-app-screen:e2e"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IsmaCortGtz/react-native-neutralinojs.git",
-    "directory": "packages/new-app-screen"
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "typescript": "^7.0.2"
   },
-  "keywords": [
-    "react-native",
-    "neutralinojs",
-    "neu",
-    "new-app-screen",
-    "template",
-    "welcome-screen",
-    "desktop"
-  ],
   "peerDependencies": {
     "@neutralinojs/lib": "*",
     "react": "*",
@@ -50,17 +65,5 @@
       "optional": true
     }
   },
-  "scripts": {
-    "build": "tsc",
-    "clean": "rm -rf dist",
-    "lint": "echo 'No lint specified'",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:unit": "vitest run --project new-app-screen:unit",
-    "test:e2e": "vitest run --project new-app-screen:e2e"
-  },
-  "devDependencies": {
-    "@types/react": "^19.3.0",
-    "typescript": "^7.0.2"
-  }
+  "packageManager": "pnpm@12.6.0"
 }

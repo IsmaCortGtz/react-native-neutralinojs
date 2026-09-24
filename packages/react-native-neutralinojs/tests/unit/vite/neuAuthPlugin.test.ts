@@ -14,7 +14,9 @@ describe('vite/neuAuthPlugin', () => {
       const ctx: any = { originalUrl: '/?neutralinoReactNativeUid=app_12345' };
 
       const transformed = plugin.transformIndexHtml(html, ctx);
-      expect(transformed).toBe('<script src="/__neutralino_globals.js?neutralinoReactNativeUid=app_12345"></script>');
+      expect(transformed).toBe(
+        '<script src="/__neutralino_globals.js?neutralinoReactNativeUid=app_12345"></script>',
+      );
     });
 
     it('should not alter html if neutralinoReactNativeUid is not in query', () => {
@@ -30,7 +32,9 @@ describe('vite/neuAuthPlugin', () => {
       const ctx: any = { path: '/index.html?neutralinoReactNativeUid=sub_path_id' };
 
       const transformed = plugin.transformIndexHtml(html, ctx);
-      expect(transformed).toBe('<script src="/__neutralino_globals.js?neutralinoReactNativeUid=sub_path_id"></script>');
+      expect(transformed).toBe(
+        '<script src="/__neutralino_globals.js?neutralinoReactNativeUid=sub_path_id"></script>',
+      );
     });
   });
 
@@ -46,7 +50,9 @@ describe('vite/neuAuthPlugin', () => {
       let middlewareHandler: any;
       const mockServer: any = {
         middlewares: {
-          use: vi.fn((fn) => { middlewareHandler = fn; }),
+          use: vi.fn((fn) => {
+            middlewareHandler = fn;
+          }),
         },
       };
 
@@ -62,7 +68,9 @@ describe('vite/neuAuthPlugin', () => {
       let middlewareHandler: any;
       const mockServer: any = {
         middlewares: {
-          use: vi.fn((fn) => { middlewareHandler = fn; }),
+          use: vi.fn((fn) => {
+            middlewareHandler = fn;
+          }),
         },
       };
 

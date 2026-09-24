@@ -22,7 +22,7 @@ describe('new-app-screen Links', () => {
   });
 
   it('should contain official React Native documentation references', () => {
-    const titles = Links.map(l => l.title);
+    const titles = Links.map((l) => l.title);
     expect(titles).toContain('Hello World');
     expect(titles).toContain('Fast Refresh');
     expect(titles).toContain('DevTools');

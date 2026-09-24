@@ -15,15 +15,15 @@ const viteConfigNames = [
 
 export default async function loadViteConfig(dir: string = '.') {
   try {
-    const configPath = viteConfigNames.find(f => fs.existsSync(path.join(root, dir, f)));
+    const configPath = viteConfigNames.find((f) => fs.existsSync(path.join(root, dir, f)));
     if (!configPath) return {};
 
     process.env.VITE_CONFIG_NATIVE_IGNORE_WARNING ??= 'true';
-  
+
     const vite = await import('vite');
     const result = await vite.loadConfigFromFile(
       { command: 'serve', mode: 'development' },
-      path.join(root, dir, configPath)
+      path.join(root, dir, configPath),
     );
 
     return result?.config || {};

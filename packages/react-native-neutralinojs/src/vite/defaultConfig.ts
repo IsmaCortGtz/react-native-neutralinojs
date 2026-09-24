@@ -11,7 +11,7 @@ export default async function defaultViteConfig() {
       logLevel: 'warn',
       server: { port: 8082 },
       plugins: [neuAuthPlugin(), netAuthProxyPlugin(), reactNativeNeu()],
-    }
+    };
   } catch {
     return {};
   }

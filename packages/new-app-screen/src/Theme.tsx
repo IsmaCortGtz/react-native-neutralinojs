@@ -45,19 +45,14 @@ export function useTheme(): Theme {
   };
 }
 
-export function ThemedText({
-  color,
-  style,
-  ...props
-}: ThemedTextProps): React.JSX.Element {
+export function ThemedText({ color, style, ...props }: ThemedTextProps): React.JSX.Element {
   const { colors } = useTheme();
 
   return (
     <Text
       style={[
         {
-          color:
-            color === 'secondary' ? colors.textSecondary : colors.textPrimary,
+          color: color === 'secondary' ? colors.textSecondary : colors.textPrimary,
         },
         style,
       ]}

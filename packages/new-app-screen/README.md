@@ -13,6 +13,7 @@ Pantalla de bienvenida y plantilla de inicio (`NewAppScreen`) adaptada para apli
 En proyectos estándar de React Native, la pantalla de inicio por defecto proviene de `@react-native/new-app-screen`. Sin embargo, dicha pantalla está diseñada exclusivamente para dispositivos móviles y enlaces basados en `Linking.openURL`.
 
 `@react-native-neutralinojs/new-app-screen` proporciona un reemplazo optimizado para entornos de escritorio:
+
 - **Diseño Responsivo:** Ajustado para ventanas de escritorio amplias y redimensionables.
 - **Integración Nativa con Neutralinojs:** Los enlaces externos y documentación se abren directamente en el navegador del sistema operativo a través de `@neutralinojs/lib` (`os.open`).
 - **Soporte de Tema Claro y Oscuro:** Detección automática del esquema de color del sistema (`useColorScheme`).
@@ -37,7 +38,9 @@ yarn add @react-native-neutralinojs/new-app-screen
 ```
 
 ### Dependencias requeridas
+
 Asegúrate de contar con las siguientes dependencias instaladas en tu proyecto:
+
 - `react-native-neutralinojs` (requerido para la integración con la plataforma de escritorio; **no** uses `react-native-web` directamente ya que `react-native-neutralinojs` actúa como el shim y entorno principal)
 - `@neutralinojs/lib`
 - `react` y `react-dom`
@@ -90,9 +93,7 @@ Para que el compilador de TypeScript y tu editor de código (VSCode, Cursor, etc
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@react-native/new-app-screen": [
-        "./node_modules/@react-native-neutralinojs/new-app-screen"
-      ]
+      "@react-native/new-app-screen": ["./node_modules/@react-native-neutralinojs/new-app-screen"]
     }
   }
 }
@@ -125,13 +126,7 @@ export default function App() {
 ```tsx
 import React from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
-import {
-  Header,
-  LearnMoreLinks,
-  ThemedText,
-  useTheme,
-  Colors,
-} from '@react-native/new-app-screen';
+import { Header, LearnMoreLinks, ThemedText, useTheme, Colors } from '@react-native/new-app-screen';
 
 export default function CustomScreen() {
   const { colors } = useTheme();
@@ -151,16 +146,17 @@ export default function CustomScreen() {
 > **Tip:** El alias permite que plantillas generadas automáticamente por React Native CLI (o librerías de terceros que consuman `@react-native/new-app-screen`) funcionen de inmediato sin tener que modificar sus importaciones en el código fuente.
 
 const styles = StyleSheet.create({
-  content: {
-    alignItems: 'center',
-    padding: 24,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 16,
-  },
+content: {
+alignItems: 'center',
+padding: 24,
+},
+title: {
+fontSize: 20,
+fontWeight: 'bold',
+marginBottom: 16,
+},
 });
+
 ```
 
 ---
@@ -192,3 +188,4 @@ Componente principal de bienvenida.
 
 [MIT License](https://opensource.org/licenses/MIT) © Ismael Cortés Gutiérrez
 
+```

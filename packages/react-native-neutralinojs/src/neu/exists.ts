@@ -13,5 +13,5 @@ export function binExists() {
   if (!fs.existsSync(neuBinPath)) return false;
 
   const files = fs.readdirSync(neuBinPath, { withFileTypes: true });
-  return files.some(f => !f.isDirectory() && f.name.startsWith('neutralino'));
+  return files.some((f) => !f.isDirectory() && f.name.startsWith('neutralino'));
 }

@@ -15,7 +15,7 @@ export default async function runNeu() {
   raw('');
   raw(chalk.green(`Starting Neu development server on ${url}\n`));
 
-  const server = await vite.createServer(config) as NeutralinoDevServer;
+  const server = (await vite.createServer(config)) as NeutralinoDevServer;
   server.neutralinoAuthPorts = {};
   await server.listen();
 
@@ -27,13 +27,14 @@ export default async function runNeu() {
   process.stdin.setRawMode(true);
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
-  
+
   process.stdin.on('data', async (key) => {
     const keyStr = String(key);
     if (keyStr === '\u0003') process.exit(); // CTRL+C
     if (keyStr === 'r') {
       log('Reloading connected app(s)...');
-      if (server.ws.clients.size < 1) return warn('No app(s) connected to reload. Make sure you have the app running.');
+      if (server.ws.clients.size < 1)
+        return warn('No app(s) connected to reload. Make sure you have the app running.');
       server.ws.send({
         type: 'full-reload',
       });

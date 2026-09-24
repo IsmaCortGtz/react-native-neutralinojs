@@ -2,7 +2,6 @@ import net from 'node:net';
 
 export default function findPort(): Promise<number> {
   return new Promise((resolve, reject) => {
-
     const server = net.createServer();
     server.listen(0);
 
@@ -12,11 +11,10 @@ export default function findPort(): Promise<number> {
 
       server.close((e) => {
         if (e) reject(e);
-        else if (!addressInfo || typeof addressInfo === 'string') reject(new Error('Could not get server address info'));
+        else if (!addressInfo || typeof addressInfo === 'string')
+          reject(new Error('Could not get server address info'));
         else resolve(addressInfo.port as number);
       });
-      
     });
-
   });
 }

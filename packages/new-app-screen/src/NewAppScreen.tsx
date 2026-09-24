@@ -19,7 +19,8 @@ export function NewAppScreen({
         paddingTop: safeAreaInsets.top,
         paddingLeft: safeAreaInsets.left,
         paddingRight: safeAreaInsets.right,
-      }}>
+      }}
+    >
       <ScrollView style={{ paddingBottom: safeAreaInsets.bottom }}>
         <View style={styles.container}>
           <Header templateFileName={templateFileName} />

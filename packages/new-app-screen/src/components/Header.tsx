@@ -1,12 +1,5 @@
 import * as React from 'react';
-import {
-  Image,
-  ReactNativeVersion,
-  StyleSheet,
-  Text,
-  View,
-  useColorScheme,
-} from 'react-native';
+import { Image, ReactNativeVersion, StyleSheet, Text, View, useColorScheme } from 'react-native';
 import { ThemedText, useTheme } from '../Theme';
 import type { HeaderProps } from '../types';
 
@@ -16,30 +9,18 @@ const lightLogo = require('../../assets/react-light.png');
 const reactDarkImage = darkLogo?.default || darkLogo;
 const reactLightImage = lightLogo?.default || lightLogo;
 
-export function Header({
-  templateFileName = 'App.tsx',
-}: HeaderProps): React.JSX.Element {
+export function Header({ templateFileName = 'App.tsx' }: HeaderProps): React.JSX.Element {
   const { colors } = useTheme();
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
     <View style={styles.header}>
-      <Image
-        style={styles.logo}
-        source={isDarkMode ? reactDarkImage : reactLightImage}
-      />
-      <ThemedText style={styles.title}>
-        Welcome to React Native + Neutralino!
-      </ThemedText>
+      <Image style={styles.logo} source={isDarkMode ? reactDarkImage : reactLightImage} />
+      <ThemedText style={styles.title}>Welcome to React Native + Neutralino!</ThemedText>
       {getVersionLabel()}
       {getHermesLabel()}
-      <ThemedText
-        style={[
-          styles.callout,
-          { backgroundColor: colors.backgroundHighlight },
-        ]}>
-        💡&ensp;Open{' '}
-        <Text style={styles.calloutEmphasis}>{templateFileName}</Text> to get started
+      <ThemedText style={[styles.callout, { backgroundColor: colors.backgroundHighlight }]}>
+        💡&ensp;Open <Text style={styles.calloutEmphasis}>{templateFileName}</Text> to get started
       </ThemedText>
     </View>
   );

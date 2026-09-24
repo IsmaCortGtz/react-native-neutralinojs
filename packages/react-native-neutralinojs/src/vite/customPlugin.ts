@@ -3,18 +3,32 @@ import react from '@vitejs/plugin-react';
 import commonjs from 'vite-plugin-commonjs';
 import { flowPlugin } from '@bunchtogether/vite-plugin-flow';
 
-
 const development = process.env.NODE_ENV === 'development';
 const extensions = [
-  '.neu.mjs', '.neu.js', '.neu.mts', '.neu.ts', '.neu.jsx', '.neu.tsx',
-  '.web.mjs', '.web.js', '.web.mts', '.web.ts', '.web.jsx', '.web.tsx',
-  '.mjs',     '.js',     '.mts',     '.ts',     '.jsx', 		'.tsx',
+  '.neu.mjs',
+  '.neu.js',
+  '.neu.mts',
+  '.neu.ts',
+  '.neu.jsx',
+  '.neu.tsx',
+  '.web.mjs',
+  '.web.js',
+  '.web.mts',
+  '.web.ts',
+  '.web.jsx',
+  '.web.tsx',
+  '.mjs',
+  '.js',
+  '.mts',
+  '.ts',
+  '.jsx',
+  '.tsx',
   '.json',
 ];
 
 export default function reactNativeNeu() {
   const shimPath = path.dirname(require.resolve('react-native-neutralinojs'));
-  
+
   const rnwPlugin = {
     enforce: 'pre',
     name: 'react-native-neu',
@@ -58,12 +72,17 @@ export default function reactNativeNeu() {
 
   return [
     flowPlugin({
-      exclude: /\/node_modules\/(?!@react-native-neutralinojs|react-native|@react-native|expo|@expo)/,
+      exclude:
+        /\/node_modules\/(?!@react-native-neutralinojs|react-native|@react-native|expo|@expo)/,
     }),
     commonjs({
       filter(id) {
         const normalizedId = id.replace(/\\/g, '/');
-        if (/\/node_modules\/(?:@react-native-neutralinojs|@react-native|react-native|@expo|expo)/.test(normalizedId)) {
+        if (
+          /\/node_modules\/(?:@react-native-neutralinojs|@react-native|react-native|@expo|expo)/.test(
+            normalizedId,
+          )
+        ) {
           return true;
         }
       },
@@ -71,7 +90,8 @@ export default function reactNativeNeu() {
     rnwPlugin,
     react({
       jsxRuntime: 'automatic',
-      exclude: /\/node_modules\/(?!@react-native-neutralinojs|react-native|@react-native|expo|@expo)/,
+      exclude:
+        /\/node_modules\/(?!@react-native-neutralinojs|react-native|@react-native|expo|@expo)/,
     }),
   ];
-};
+}

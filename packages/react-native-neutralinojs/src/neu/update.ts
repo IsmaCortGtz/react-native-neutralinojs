@@ -9,7 +9,7 @@ const root = process.cwd();
 export default async function updateNeuProject() {
   if (!neuExists()) await init();
   log('Updating Neutralino project...\n\n');
-  
+
   try {
     const neuPath = path.join(root, 'neutralino');
     const out = fs.openSync(path.join(root, 'neutralino', 'log', 'cli.log'), 'a');
@@ -20,7 +20,9 @@ export default async function updateNeuProject() {
 
     log('Neutralino project updated successfully!');
   } catch (_e: any) {
-    log('Error updating Neutralino project. Please check the cli log files in the neutralino directory for more details.');
+    log(
+      'Error updating Neutralino project. Please check the cli log files in the neutralino directory for more details.',
+    );
   } finally {
     process.chdir(root);
   }

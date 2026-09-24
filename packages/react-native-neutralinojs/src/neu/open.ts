@@ -7,7 +7,6 @@ import findPort from '@/utils/findPort';
 const root = process.cwd();
 
 export default async function openNeu(url: string): Promise<{ uuid: string; port: number }> {
-
   // Check if neutralino.config.json exists
   if (!fs.existsSync(path.join(root, 'neutralino', 'neutralino.config.json'))) {
     error('neutralino.config.json not found in the /neutralino directory.');
@@ -25,12 +24,25 @@ export default async function openNeu(url: string): Promise<{ uuid: string; port
   // Change current directory to /neutralino and spawn neu process
   process.chdir(path.join(root, 'neutralino'));
   const isWindows = process.platform === 'win32';
-  const neuProcess = spawn('npx', ['neu', 'run', '--', `--url=${newUrl.toString()}`, `--port=${port}`, '--logging-write-to-log-file=false', '--logging-enabled=true', '--window-enable-inspector=true'], { shell: isWindows, stdio: ['ignore', out, err] });
+  const neuProcess = spawn(
+    'npx',
+    [
+      'neu',
+      'run',
+      '--',
+      `--url=${newUrl.toString()}`,
+      `--port=${port}`,
+      '--logging-write-to-log-file=false',
+      '--logging-enabled=true',
+      '--window-enable-inspector=true',
+    ],
+    { shell: isWindows, stdio: ['ignore', out, err] },
+  );
 
   neuProcess.on('spawn', () => {
     log(`NeutralinoJS app started with UID: ${uuid}`);
   });
-  
+
   neuProcess.on('close', (code) => {
     if (code === 0) return log(`NeutralinoJS app with UID: ${uuid} closed successfully.`);
     error(`NeutralinoJS app with UID: ${uuid} exited with code: ${code}`);

@@ -11,7 +11,7 @@ describe('utils/findPort', () => {
 
   it('should return valid ports on multiple concurrent calls', async () => {
     const ports = await Promise.all([findPort(), findPort(), findPort()]);
-    ports.forEach(port => {
+    ports.forEach((port) => {
       expect(port).toBeGreaterThan(0);
       expect(port).toBeLessThan(65536);
     });

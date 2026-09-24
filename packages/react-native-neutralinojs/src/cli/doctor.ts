@@ -1,4 +1,4 @@
-import { neuExists, binExists } from "@/neu/exists";
+import { neuExists, binExists } from '@/neu/exists';
 import init from '@/neu/init';
 import update from '@/neu/update';
 
@@ -9,7 +9,7 @@ const isNeutralinoProjectInitialized = {
   getDiagnostics: () => {
     const needsToBeFixed = !neuExists();
     return { needsToBeFixed };
-  }
+  },
 };
 
 const areNeutralinoBinariesInstalled = {
@@ -19,10 +19,7 @@ const areNeutralinoBinariesInstalled = {
   getDiagnostics: () => {
     const needsToBeFixed = !binExists();
     return { needsToBeFixed };
-  }
+  },
 };
 
-export default [
-  isNeutralinoProjectInitialized,
-  areNeutralinoBinariesInstalled
-];
+export default [isNeutralinoProjectInitialized, areNeutralinoBinariesInstalled];

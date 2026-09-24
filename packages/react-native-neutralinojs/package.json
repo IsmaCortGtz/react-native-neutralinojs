@@ -2,28 +2,21 @@
   "name": "react-native-neutralinojs",
   "version": "1.0.2",
   "description": "React Native CLI integration for Neutralinojs",
+  "keywords": [
+    "browser",
+    "chrome",
+    "cross-platform",
+    "desktop",
+    "desktop-framework",
+    "framework",
+    "javascript",
+    "lightweight",
+    "neu",
+    "neutralinojs",
+    "react-native",
+    "webview"
+  ],
   "license": "MIT",
-  "packageManager": "pnpm@12.6.0",
-  "type": "commonjs",
-  "main": "exports/index.cjs",
-  "module": "exports/index.js",
-  "scripts": {
-    "build:version": "node scripts/build-version.mjs",
-    "build:ts": "tsc",
-    "build:bundle": "rolldown -c",
-    "build": "run-s build:version build:ts build:bundle",
-    "prepublishOnly": "run-s build",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:unit": "vitest run --project react-native-neutralinojs:unit",
-    "test:e2e": "vitest run --project react-native-neutralinojs:e2e"
-  },
-  "exports": {
-    ".": {
-      "import": "./exports/index.js",
-      "require": "./exports/index.cjs"
-    }
-  },
   "author": {
     "name": "Ismael Cortés Gutiérrez",
     "url": "https://github.com/IsmaCortGtz/react-native-neutralinojs"
@@ -37,25 +30,29 @@
     "dist/",
     "exports/"
   ],
-  "keywords": [
-    "react-native",
-    "neutralinojs",
-    "neu",
-    "cross-platform",
-    "framework",
-    "desktop-framework",
-    "lightweight",
-    "javascript",
-    "desktop",
-    "webview",
-    "chrome",
-    "browser"
-  ],
-  "peerDependencies": {
-    "@neutralinojs/lib": "*",
-    "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0",
-    "react-native-web": "^0.21.2"
+  "type": "commonjs",
+  "main": "exports/index.cjs",
+  "module": "exports/index.js",
+  "exports": {
+    ".": {
+      "import": "./exports/index.js",
+      "require": "./exports/index.cjs"
+    }
+  },
+  "scripts": {
+    "build:version": "node scripts/build-version.mjs",
+    "build:ts": "tsc",
+    "build:bundle": "rolldown -c",
+    "build": "run-s build:version build:ts build:bundle",
+    "prepublishOnly": "run-s build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "vitest run --project react-native-neutralinojs:unit",
+    "test:e2e": "vitest run --project react-native-neutralinojs:e2e",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check ."
   },
   "dependencies": {
     "@bunchtogether/vite-plugin-flow": "^1.0.2",
@@ -65,13 +62,20 @@
     "vite": "^8.3.0",
     "vite-plugin-commonjs": "^0.10.4"
   },
-  "engines": {
-    "node": ">=22"
-  },
   "devDependencies": {
     "@types/node": "^26.6.2",
     "npm-run-all": "^4.1.5",
     "rolldown": "^1.2.9",
     "typescript": "^7.0.2"
-  }
+  },
+  "peerDependencies": {
+    "@neutralinojs/lib": "*",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "react-native-web": "^0.21.2"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@12.6.0"
 }

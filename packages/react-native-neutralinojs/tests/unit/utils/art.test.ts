@@ -22,7 +22,7 @@ describe('utils/art', () => {
   describe('printHeader', () => {
     it('should call console.log with welcome message and figlet', () => {
       const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
-      
+
       printHeader();
 
       expect(consoleSpy).toHaveBeenCalledTimes(2);

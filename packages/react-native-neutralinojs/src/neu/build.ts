@@ -18,10 +18,10 @@ export default async function buildNeu() {
     const vite = await import('vite');
     const userConfig = await loadViteConfig('neutralino');
     const config = vite.mergeConfig(await defaultViteConfig(), userConfig);
-  
+
     await vite.build(config);
     log('Neutralino react-native built successfully. Building neutralino app...');
-    
+
     const neuProjectPath = path.join(root, 'neutralino');
     const argv = process.argv.slice(4).join(' ');
 
@@ -29,7 +29,6 @@ export default async function buildNeu() {
     execSync(`npx neu build ${argv}`, { stdio: 'pipe' });
 
     log('Neutralino app built successfully!');
-
   } catch (e: any) {
     log('Error building Neutralino project:', e?.stderr?.toString() || e?.message || e);
     process.exit(1);

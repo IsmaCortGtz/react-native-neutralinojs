@@ -34,10 +34,7 @@ export const e2eProject = defineProject({
   test: {
     name: 'new-app-screen:e2e',
     environment: 'node',
-    include: [
-      '**/*.e2e.{test,spec}.?(c|m)[jt]s?(x)',
-      '**/*.e2e.?(c|m)[jt]s?(x)',
-    ],
+    include: ['**/*.e2e.{test,spec}.?(c|m)[jt]s?(x)', '**/*.e2e.?(c|m)[jt]s?(x)'],
     exclude: ['**/node_modules/**', '**/dist/**'],
     testTimeout: 30000,
     hookTimeout: 30000,

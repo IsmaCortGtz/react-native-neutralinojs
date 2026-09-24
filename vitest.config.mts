@@ -5,9 +5,6 @@ import { projects as reactNativeNeutralinojsProjects } from './packages/react-na
 export default defineConfig({
   test: {
     passWithNoTests: true,
-    projects: [
-      ...reactNativeNeutralinojsProjects,
-      ...newAppScreenProjects,
-    ],
+    projects: [...reactNativeNeutralinojsProjects, ...newAppScreenProjects],
   },
 });

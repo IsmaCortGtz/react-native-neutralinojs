@@ -1,11 +1,6 @@
 import * as React from 'react';
 import { os } from '@neutralinojs/lib';
-import {
-  StyleSheet,
-  TouchableHighlight,
-  View,
-  useWindowDimensions,
-} from 'react-native';
+import { StyleSheet, TouchableHighlight, View, useWindowDimensions } from 'react-native';
 import Links from '../Links';
 import { ThemedText, useTheme } from '../Theme';
 
@@ -29,12 +24,11 @@ export function LearnMoreLinks(): React.JSX.Element {
               borderColor: colors.cardOutline,
               backgroundColor: colors.cardBackground,
             },
-          ]}>
+          ]}
+        >
           <View>
             <ThemedText style={styles.linkText}>{title}</ThemedText>
-            <ThemedText style={{ color: colors.textSecondary }}>
-              {description}
-            </ThemedText>
+            <ThemedText style={{ color: colors.textSecondary }}>{description}</ThemedText>
           </View>
         </TouchableHighlight>
       ))}

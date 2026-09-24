@@ -5,7 +5,7 @@ import { warn } from '@/utils/log';
 export default function open(url: string): void {
   const os = platform();
   let command = '';
-  
+
   switch (os) {
     case 'win32':
       command = `start ${url}`;

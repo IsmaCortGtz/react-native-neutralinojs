@@ -1,7 +1,7 @@
-import chalk from "chalk";
+import chalk from 'chalk';
 
 export function getFiglet() {
-    return `
+  return `
   _   _            _             _ _             _
  | \\ | | ___ _   _| |_ _ __ __ _| (_)_ __   ___ (_)___
  |  \\| |/ _ \\ | | | __| '__/ _' | | | '_ \\ / _ \\| / __|
@@ -11,6 +11,6 @@ export function getFiglet() {
 }
 
 export function printHeader() {
-    console.log('\n' + chalk.yellow.bold('Welcome to react-native-neutralinojs'))
-    console.log(chalk.yellow(getFiglet()));
+  console.log('\n' + chalk.yellow.bold('Welcome to react-native-neutralinojs'));
+  console.log(chalk.yellow(getFiglet()));
 }

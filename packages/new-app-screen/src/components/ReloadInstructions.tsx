@@ -5,7 +5,8 @@ import { ThemedText } from '../Theme';
 export function ReloadInstructions(): React.JSX.Element {
   return (
     <ThemedText style={styles.instruction}>
-      Press <Text style={styles.highlight}>Ctrl+R</Text> (or <Text style={styles.highlight}>Cmd+R</Text> on macOS) to reload your code.
+      Press <Text style={styles.highlight}>Ctrl+R</Text> (or{' '}
+      <Text style={styles.highlight}>Cmd+R</Text> on macOS) to reload your code.
     </ThemedText>
   );
 }

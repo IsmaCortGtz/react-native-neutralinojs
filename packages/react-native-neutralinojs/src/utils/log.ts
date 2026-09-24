@@ -1,4 +1,4 @@
-import chalk from "chalk";
+import chalk from 'chalk';
 
 export function log(...args: any[]) {
   console.log(chalk.bgCyan.black.bold(' Info '), ...args);
@@ -20,5 +20,5 @@ export default {
   log,
   error,
   warn,
-  raw
+  raw,
 };

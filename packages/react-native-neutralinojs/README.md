@@ -17,16 +17,19 @@ This tool allows you to export your `react-native` apps to a lightweight, cross-
     For example, if your project uses `react` version `18.2.0`, you must install `react-dom@18.2.0`.
 
     Using pnpm:
+
     ```bash
     pnpm add react-dom@<EXACT_REACT_VERSION> --save-exact
     ```
 
     Using npm:
+
     ```bash
     npm install react-dom@<EXACT_REACT_VERSION> --save-exact
     ```
 
     Using Yarn:
+
     ```bash
     yarn add react-dom@<EXACT_REACT_VERSION> --exact
     ```
@@ -34,16 +37,19 @@ This tool allows you to export your `react-native` apps to a lightweight, cross-
 2.  **Add the package to your project:**
 
     Using pnpm:
+
     ```bash
     pnpm add react-native-neutralinojs
     ```
 
     Using npm:
+
     ```bash
     npm install react-native-neutralinojs
     ```
 
     Using Yarn:
+
     ```bash
     yarn add react-native-neutralinojs
     ```
@@ -53,16 +59,19 @@ This tool allows you to export your `react-native` apps to a lightweight, cross-
     Finally, install the other required peer dependencies. While some package managers might install these automatically, others do not. To be safe and avoid potential issues, it's recommended to run the installation command manually.
 
     Using pnpm:
+
     ```bash
     pnpm add @neutralinojs/lib react-native-web
     ```
 
     Using npm:
+
     ```bash
     npm install @neutralinojs/lib react-native-web
     ```
 
     Using Yarn:
+
     ```bash
     yarn add @neutralinojs/lib react-native-web
     ```
@@ -85,16 +94,19 @@ npx react-native run-neu
 
 Here are all the available commands for the `neu` platform:
 
-*   **`run-neu`**: Initializes the NeutralinoJS project (if not already done) and starts the application in a development window. This is the most common command you'll use.
-*   **`init-neu`**: Initializes the NeutralinoJS project by creating the `neutralino` directory and necessary configuration files. You only need to run this once, and `run-neu` does it for you automatically.
-*   **`build-neu`**: Builds your React Native application and packages it into a distributable NeutralinoJS application for all platforms.
-*   **`update-neu`**: Updates the NeutralinoJS binaries to the latest version defined in the package.
+- **`run-neu`**: Initializes the NeutralinoJS project (if not already done) and starts the application in a development window. This is the most common command you'll use.
+- **`init-neu`**: Initializes the NeutralinoJS project by creating the `neutralino` directory and necessary configuration files. You only need to run this once, and `run-neu` does it for you automatically.
+- **`build-neu`**: Builds your React Native application and packages it into a distributable NeutralinoJS application for all platforms.
+- **`update-neu`**: Updates the NeutralinoJS binaries to the latest version defined in the package.
 
 You can run any of these commands using the React Native CLI:
+
 ```bash
 npx react-native <command-name>
 ```
+
 For example:
+
 ```bash
 npx react-native build-neu
 ```
