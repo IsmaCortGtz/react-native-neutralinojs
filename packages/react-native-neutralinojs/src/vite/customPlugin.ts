@@ -58,13 +58,20 @@ export default function reactNativeNeu() {
 
   return [
     flowPlugin({
-      exclude: /\/node_modules\/(?!react-native|@react-native|expo|@expo)/,
+      exclude: /\/node_modules\/(?!@react-native-neutralinojs|react-native|@react-native|expo|@expo)/,
     }),
-    commonjs(),
+    commonjs({
+      filter(id) {
+        const normalizedId = id.replace(/\\/g, '/');
+        if (/\/node_modules\/(?:@react-native-neutralinojs|@react-native|react-native|@expo|expo)/.test(normalizedId)) {
+          return true;
+        }
+      },
+    }),
     rnwPlugin,
     react({
       jsxRuntime: 'automatic',
-      exclude: /\/node_modules\/(?!react-native|@react-native|expo|@expo)/,
+      exclude: /\/node_modules\/(?!@react-native-neutralinojs|react-native|@react-native|expo|@expo)/,
     }),
   ];
 };
