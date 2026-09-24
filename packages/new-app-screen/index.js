@@ -12,7 +12,13 @@ import {
   useWindowDimensions,
 } from 'react-native';
 
-const COLORS = {
+const darkLogo = require('./assets/react-dark.png');
+const lightLogo = require('./assets/react-light.png');
+
+const reactDarkImage = darkLogo?.default || darkLogo;
+const reactLightImage = lightLogo?.default || lightLogo;
+
+export const COLORS = {
   light: {
     background: '#f3f3f3',
     backgroundHighlight: '#cfe6ee',
@@ -20,6 +26,13 @@ const COLORS = {
     cardOutline: '#dae1e7',
     textPrimary: '#000',
     textSecondary: '#404756',
+    primary: '#1292B4',
+    white: '#FFF',
+    lighter: '#F3F3F3',
+    light: '#DAE1E7',
+    dark: '#444',
+    darker: '#222',
+    black: '#000',
   },
   dark: {
     background: '#000',
@@ -28,10 +41,19 @@ const COLORS = {
     cardOutline: '#444',
     textPrimary: '#fff',
     textSecondary: '#c0c1c4',
+    primary: '#1292B4',
+    white: '#FFF',
+    lighter: '#F3F3F3',
+    light: '#DAE1E7',
+    dark: '#444',
+    darker: '#222',
+    black: '#000',
   },
 };
 
-const Links = [
+export const Colors = COLORS.light;
+
+export const Links = [
   {
     title: 'Hello World',
     description: 'Learn the basics',
@@ -107,7 +129,7 @@ export function ThemedText({
   style,
   ...props
 }) {
-  const {colors} = useTheme();
+  const { colors } = useTheme();
 
   return (
     <Text
@@ -123,13 +145,89 @@ export function ThemedText({
   );
 }
 
+export function Header({
+  templateFileName = 'App.tsx',
+}) {
+  const { colors } = useTheme();
+  const isDarkMode = useColorScheme() === 'dark';
+
+  return (
+    <View style={styles.header}>
+      <Image
+        style={styles.logo}
+        source={isDarkMode ? reactDarkImage : reactLightImage}
+      />
+      <ThemedText style={styles.title}>
+        Welcome to React Native + Neutralino!
+      </ThemedText>
+      {getVersionLabel()}
+      {getHermesLabel()}
+      <ThemedText
+        style={[
+          styles.callout,
+          { backgroundColor: colors.backgroundHighlight },
+        ]}>
+        💡&ensp;Open{' '}
+        <Text style={styles.calloutEmphasis}>{templateFileName}</Text> to get started
+      </ThemedText>
+    </View>
+  );
+}
+
+export function LearnMoreLinks() {
+  const { colors } = useTheme();
+  const isLargeScreen = useWindowDimensions().width > 600;
+
+  return (
+    <View style={styles.linksContainer}>
+      <ThemedText style={styles.linksTitle}>Learn & Explore</ThemedText>
+      {Links.map(({ title, description, url }, i) => (
+        <TouchableHighlight
+          key={i}
+          activeOpacity={0.6}
+          underlayColor={colors.background}
+          onPress={() => os.open(url)}
+          style={[
+            styles.link,
+            {
+              maxWidth: isLargeScreen ? 240 : 360,
+              borderColor: colors.cardOutline,
+              backgroundColor: colors.cardBackground,
+            },
+          ]}>
+          <View>
+            <ThemedText style={styles.linkText}>{title}</ThemedText>
+            <ThemedText style={{ color: colors.textSecondary }}>
+              {description}
+            </ThemedText>
+          </View>
+        </TouchableHighlight>
+      ))}
+    </View>
+  );
+}
+
+export function ReloadInstructions() {
+  return (
+    <ThemedText style={styles.instruction}>
+      Press <Text style={styles.highlight}>Ctrl+R</Text> (or <Text style={styles.highlight}>Cmd+R</Text> on macOS) to reload your code.
+    </ThemedText>
+  );
+}
+
+export function DebugInstructions() {
+  return (
+    <ThemedText style={styles.instruction}>
+      Press <Text style={styles.highlight}>F12</Text> to open the Neutralinojs developer tools.
+    </ThemedText>
+  );
+}
+
 export function NewAppScreen({
   templateFileName = 'App.tsx',
-  safeAreaInsets = {top: 0, bottom: 0, left: 0, right: 0},
+  safeAreaInsets = { top: 0, bottom: 0, left: 0, right: 0 },
 }) {
-  const {colors} = useTheme();
-  const isDarkMode = useColorScheme() === 'dark';
-  const isLargeScreen = useWindowDimensions().width > 600;
+  const { colors } = useTheme();
 
   return (
     <View
@@ -139,58 +237,10 @@ export function NewAppScreen({
         paddingLeft: safeAreaInsets.left,
         paddingRight: safeAreaInsets.right,
       }}>
-      <ScrollView style={{paddingBottom: safeAreaInsets.bottom}}>
+      <ScrollView style={{ paddingBottom: safeAreaInsets.bottom }}>
         <View style={styles.container}>
-          <View style={styles.header}>
-            <Image
-              style={styles.logo}
-              source={
-                isDarkMode
-                  ? require('./assets/react-dark.png').default
-                  : require('./assets/react-light.png').default
-              }
-            />
-            <ThemedText style={styles.title}>
-              Welcome to React Native + Neutralino!
-            </ThemedText>
-            {getVersionLabel()}
-            {getHermesLabel()}
-            <ThemedText
-              style={[
-                styles.callout,
-                {backgroundColor: colors.backgroundHighlight},
-              ]}>
-              💡&ensp;Open{' '}
-              <Text style={styles.calloutEmphasis}>{templateFileName}</Text> to
-              get started
-            </ThemedText>
-          </View>
-          <View style={styles.linksContainer}>
-            <ThemedText style={styles.linksTitle}>Learn & Explore</ThemedText>
-            {Links.map(({title, description, url}, i) => (
-              <TouchableHighlight
-                key={i}
-                activeOpacity={0.6}
-                underlayColor={colors.background}
-                onPress={() => os.open(url)}
-                style={[
-                  styles.link,
-                  // eslint-disable-next-line react-native/no-inline-styles
-                  {
-                    maxWidth: isLargeScreen ? 240 : 360,
-                    borderColor: colors.cardOutline,
-                    backgroundColor: colors.cardBackground,
-                  },
-                ]}>
-                <View>
-                  <ThemedText style={styles.linkText}>{title}</ThemedText>
-                  <ThemedText style={{color: colors.textSecondary}}>
-                    {description}
-                  </ThemedText>
-                </View>
-              </TouchableHighlight>
-            ))}
-          </View>
+          <Header templateFileName={templateFileName} />
+          <LearnMoreLinks />
         </View>
       </ScrollView>
     </View>
@@ -198,15 +248,16 @@ export function NewAppScreen({
 }
 
 function getVersionLabel() {
+  const versionString = ReactNativeVersion?.getVersionString?.() || '0.0.0';
   return (
     <ThemedText color="secondary" style={styles.label}>
-      Version: {ReactNativeVersion.getVersionString()}
+      Version: {versionString}
     </ThemedText>
   );
 }
 
 function getHermesLabel() {
-  if ((globalThis).HermesInternal == null) {
+  if (typeof globalThis !== 'undefined' && globalThis.HermesInternal == null) {
     return null;
   }
 
@@ -287,6 +338,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
   },
+  instruction: {
+    fontSize: 14,
+    marginVertical: 4,
+  },
+  highlight: {
+    fontWeight: '700',
+  },
 });
 
 export default NewAppScreen;
+

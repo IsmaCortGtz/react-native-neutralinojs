@@ -14,7 +14,6 @@ const extensions = [
 
 export default function reactNativeNeu() {
   const shimPath = path.dirname(require.resolve('react-native-neutralinojs'));
-  const newScreenPath = path.join(path.dirname(require.resolve('react-native-neutralinojs')), 'new-app-screen');
   
   const rnwPlugin = {
     enforce: 'pre',
@@ -35,7 +34,6 @@ export default function reactNativeNeu() {
       resolve: {
         extensions,
         alias: [
-          { find: /^@react-native\/new-app-screen$/, replacement: newScreenPath },
           { find: /^react-native$/, replacement: shimPath },
           { find: /^react-native-web$/, replacement: shimPath },
         ],

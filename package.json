@@ -9,6 +9,12 @@
   "scripts": {
     "build": "yarn workspaces foreach -Apt run build",
     "test": "yarn workspaces foreach -Apt run test",
-    "lint": "yarn workspaces foreach -Apt run lint"
+    "lint": "yarn workspaces foreach -Apt run lint",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "yarn build && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^3.0.3"
   }
 }

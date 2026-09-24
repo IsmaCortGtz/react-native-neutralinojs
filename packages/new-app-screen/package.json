@@ -1,0 +1,60 @@
+{
+  "name": "@react-native-neutralinojs/new-app-screen",
+  "version": "0.0.0",
+  "description": "Standalone desktop-adapted welcome and template screens for React Native Neutralinojs apps",
+  "license": "MIT",
+  "packageManager": "yarn@4.18.0",
+  "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js",
+      "default": "./index.js"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "assets/",
+    "README.md"
+  ],
+  "author": {
+    "name": "Ismael Cortés Gutiérrez",
+    "url": "https://github.com/IsmaCortGtz/react-native-neutralinojs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsmaCortGtz/react-native-neutralinojs.git",
+    "directory": "packages/new-app-screen"
+  },
+  "keywords": [
+    "react-native",
+    "neutralinojs",
+    "neu",
+    "new-app-screen",
+    "template",
+    "welcome-screen",
+    "desktop"
+  ],
+  "peerDependencies": {
+    "@neutralinojs/lib": "*",
+    "react": "*",
+    "react-native": "*",
+    "react-native-neutralinojs": "*"
+  },
+  "peerDependenciesMeta": {
+    "react-native": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "tsc --noEmit",
+    "lint": "echo 'No lint specified'"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}

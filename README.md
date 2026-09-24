@@ -35,13 +35,13 @@ This project is organized as a **monorepo** managed with **Yarn Workspaces**, tr
 
 | Package | Version | Path | Description | Docs |
 | :--- | :--- | :--- | :--- | :--- |
-| [![npm version](https://img.shields.io/npm/v/react-native-neutralinojs)](https://www.npmjs.com/package/react-native-neutralinojs) <br> [`react-native-neutralinojs`](https://www.npmjs.com/package/react-native-neutralinojs) | `1.0.2` | [`packages/react-native-neutralinojs`](packages/react-native-neutralinojs) | Core React Native CLI integration and Vite bundler for Neutralinojs | [Documentation](packages/react-native-neutralinojs/README.md) |
+| [`react-native-neutralinojs`](https://www.npmjs.com/package/react-native-neutralinojs) | [![npm version](https://img.shields.io/npm/v/react-native-neutralinojs)](https://www.npmjs.com/package/react-native-neutralinojs) | [`packages/react-native-neutralinojs`](packages/react-native-neutralinojs) | Core React Native CLI integration and Vite bundler for Neutralinojs | [Documentation](packages/react-native-neutralinojs/README.md) |
+| [`@react-native-neutralinojs/new-app-screen`](https://www.npmjs.com/package/@react-native-neutralinojs/new-app-screen) | [![npm version](https://img.shields.io/npm/v/@react-native-neutralinojs/new-app-screen)](https://www.npmjs.com/package/@react-native-neutralinojs/new-app-screen) | [`packages/new-app-screen`](packages/new-app-screen) | Desktop-adapted welcome and template screens for React Native Neutralinojs apps | [Documentation](packages/new-app-screen/README.md) |
 
 ### Upcoming / In-Development Packages
 
 The following packages are planned or under active development:
 
-- **`new-app-screen`**: Standalone desktop-adapted welcome and template screens for React Native Neutralinojs apps.
 - **Native Dependency Adapters**: Community-standard React Native modules (AsyncStorage, NetInfo, Filesystem, etc.) adapted for Neutralinojs native APIs.
 
 ---
