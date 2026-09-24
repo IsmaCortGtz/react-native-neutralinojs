@@ -1,7 +1,7 @@
 import path from 'node:path';
 import react from '@vitejs/plugin-react';
 import commonjs from 'vite-plugin-commonjs';
-import { esbuildFlowPlugin, flowPlugin } from '@bunchtogether/vite-plugin-flow';
+import { flowPlugin } from '@bunchtogether/vite-plugin-flow';
 
 
 const development = process.env.NODE_ENV === 'development';
@@ -39,16 +39,17 @@ export default function reactNativeNeu() {
         ],
       },
       optimizeDeps: {
-        esbuildOptions: {
+        rolldownOptions: {
           plugins: [
-            esbuildFlowPlugin(
-              new RegExp(/\.(flow|jsx?)$/),
-              (_path: string) => "jsx",
-            ),
+            flowPlugin({
+              exclude: /\/node_modules\/(?!react-native|@react-native|expo|@expo)/,
+            }),
           ],
-          resolveExtensions: extensions,
-          loader: {
-            ".js": "jsx",
+          resolve: {
+            extensions,
+          },
+          moduleTypes: {
+            '.js': 'jsx',
           },
         },
       },
