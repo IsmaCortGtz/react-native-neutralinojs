@@ -18,6 +18,7 @@ if (!match) {
 }
 
 const [, majorStr, minorStr, patchStr, prerelease] = match;
+const major = parseInt(majorStr, 10);
 const minor = parseInt(minorStr, 10);
 const patch = parseInt(patchStr, 10);
 const prereleaseFormatted = prerelease != null ? JSON.stringify(prerelease) : 'null';

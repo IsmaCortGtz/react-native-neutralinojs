@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "build": "yarn workspaces foreach -Apt run build",
+    "pack:all": "yarn build && mkdir -p tarballs && yarn workspaces foreach -A --no-private pack --out ../../tarballs/%s-%v.tgz",
     "test": "yarn workspaces foreach -Apt run test",
     "lint": "yarn workspaces foreach -Apt run lint",
     "changeset": "changeset",
