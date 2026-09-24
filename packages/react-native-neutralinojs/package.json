@@ -12,7 +12,11 @@
     "build:ts": "tsc",
     "build:bundle": "rolldown -c",
     "build": "run-s build:version build:ts build:bundle",
-    "prepublishOnly": "run-s build"
+    "prepublishOnly": "run-s build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "vitest run --project react-native-neutralinojs:unit",
+    "test:e2e": "vitest run --project react-native-neutralinojs:e2e"
   },
   "exports": {
     ".": {

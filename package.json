@@ -6,7 +6,11 @@
   "scripts": {
     "build": "pnpm -r run build",
     "pack:all": "pnpm run build && mkdir -p tarballs && pnpm -r --filter=\"!rn-neutralinojs-monorepo\" pack --out tarballs/%s-%v.tgz",
-    "test": "pnpm -r run test",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:packages": "pnpm -r run test",
+    "test:unit": "vitest run --project *unit",
+    "test:e2e": "vitest run --project *e2e",
     "lint": "pnpm -r run lint",
     "changeset": "changeset",
     "version-packages": "changeset version",
@@ -15,6 +19,7 @@
   "devDependencies": {
     "@changesets/cli": "^3.0.3",
     "@types/node": "^26.6.2",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
   }
 }
