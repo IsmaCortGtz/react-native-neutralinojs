@@ -232,6 +232,7 @@ export function NewAppScreen({
   return (
     <View
       style={{
+        flex: 1,
         backgroundColor: colors.background,
         paddingTop: safeAreaInsets.top,
         paddingLeft: safeAreaInsets.left,

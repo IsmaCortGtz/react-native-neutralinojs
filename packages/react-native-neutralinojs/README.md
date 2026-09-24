@@ -12,9 +12,14 @@ This tool allows you to export your `react-native` apps to a lightweight, cross-
 
     This is the most critical step. The version of `react-dom` **must exactly match** the version of `react` installed in your project. A mismatch will cause your app to crash.
 
-    First, check the exact `react` version in your `package.json` or lock file. Then, install the corresponding `react-dom` version using the `--save-exact` (for npm) or `--exact` (for Yarn) flag. This is crucial because package managers might otherwise install a newer patch version that is incompatible.
+    First, check the exact `react` version in your `package.json` or lock file. Then, install the corresponding `react-dom` version using the `--save-exact` (for pnpm/npm) or `--exact` (for Yarn) flag. This is crucial because package managers might otherwise install a newer patch version that is incompatible.
 
     For example, if your project uses `react` version `18.2.0`, you must install `react-dom@18.2.0`.
+
+    Using pnpm:
+    ```bash
+    pnpm add react-dom@<EXACT_REACT_VERSION> --save-exact
+    ```
 
     Using npm:
     ```bash
@@ -27,6 +32,11 @@ This tool allows you to export your `react-native` apps to a lightweight, cross-
     ```
 
 2.  **Add the package to your project:**
+
+    Using pnpm:
+    ```bash
+    pnpm add react-native-neutralinojs
+    ```
 
     Using npm:
     ```bash
@@ -41,6 +51,11 @@ This tool allows you to export your `react-native` apps to a lightweight, cross-
 3.  **Install Peer Dependencies:**
 
     Finally, install the other required peer dependencies. While some package managers might install these automatically, others do not. To be safe and avoid potential issues, it's recommended to run the installation command manually.
+
+    Using pnpm:
+    ```bash
+    pnpm add @neutralinojs/lib react-native-web
+    ```
 
     Using npm:
     ```bash
@@ -117,12 +132,16 @@ For convenience, you can add these commands to the `scripts` section of your `pa
 With this configuration, you can simply run:
 
 ```bash
+pnpm neu
+# or
 npm run neu
 ```
 
 Or to build the application:
 
 ```bash
+pnpm run build:neu
+# or
 npm run build:neu
 ```
 

@@ -26,14 +26,14 @@ En proyectos estándar de React Native, la pantalla de inicio por defecto provie
 Instala el paquete en tu proyecto de React Native con tu gestor de dependencias preferido:
 
 ```bash
-# Con Yarn
-yarn add @react-native-neutralinojs/new-app-screen
+# Con pnpm
+pnpm add @react-native-neutralinojs/new-app-screen
 
 # Con npm
 npm install @react-native-neutralinojs/new-app-screen
 
-# Con pnpm
-pnpm add @react-native-neutralinojs/new-app-screen
+# Con Yarn
+yarn add @react-native-neutralinojs/new-app-screen
 ```
 
 ### Dependencias requeridas

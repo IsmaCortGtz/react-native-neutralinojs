@@ -1,7 +1,7 @@
 # React Native Neutralinojs
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Yarn](https://img.shields.io/badge/yarn-4.18.0-2C8EBB.svg)](https://yarnpkg.com/)
+[![pnpm](https://img.shields.io/badge/pnpm-12.6.0-F69220.svg)](https://pnpm.io/)
 [![React Native](https://img.shields.io/badge/React%20Native-0.70+-61DAFB.svg)](https://reactnative.dev/)
 [![Neutralinojs](https://img.shields.io/badge/Neutralinojs-v11+-ff8c00.svg)](https://neutralino.js.org/)
 
@@ -24,7 +24,7 @@ Unlike heavier solutions like Electron or platform-specific native runtimes like
 
 ## 🏗️ Monorepo Architecture & Roadmap
 
-This project is organized as a **monorepo** managed with **Yarn Workspaces**, transitioning from a single package to an ecosystem of packages:
+This project is organized as a **monorepo** managed with **pnpm workspaces**, transitioning from a single package to an ecosystem of packages:
 
 - **Core Platform**: Provides the base platform target, CLI integration, and Vite bundling infrastructure to run and package React Native apps on Neutralinojs.
 - **Native Dependency Adapters (In Progress / Future)**: Standard React Native applications often depend on common native modules (e.g. AsyncStorage, Filesystem, NetInfo, DeviceInfo). This monorepo will host compatible packages, polyfills, and bridge adapters tailored for Neutralinojs native APIs and Web Standards.
@@ -53,7 +53,7 @@ If you want to contribute to the packages in this monorepo:
 ### Prerequisites
 
 - **Node.js**: `>= 22`
-- **Yarn**: `4.x` (Berry)
+- **pnpm**: `>= 9` (Recommended `12.x`)
 
 ### Workspace Commands
 
@@ -63,16 +63,16 @@ git clone git@github.com:IsmaCortGtz/react-native-neutralinojs.git
 cd react-native-neutralinojs
 
 # Install all workspace dependencies
-yarn install
+pnpm install
 
 # Build all packages across workspaces
-yarn build
+pnpm build
 
 # Run tests across workspaces
-yarn test
+pnpm test
 
 # Run linter across workspaces
-yarn lint
+pnpm lint
 ```
 
 ---
