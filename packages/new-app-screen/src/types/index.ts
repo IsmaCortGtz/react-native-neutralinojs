@@ -1,5 +1,5 @@
-import * as React from 'react';
-import type { TextProps, TextStyle } from 'react-native';
+import type * as React from 'react';
+import type { StyleProp, TextProps, TextStyle } from 'react-native';
 
 export interface ColorTheme {
   background: string;
@@ -22,8 +22,9 @@ export interface ColorsRecord {
   dark: ColorTheme;
 }
 
-export declare const COLORS: ColorsRecord;
-export declare const Colors: ColorTheme;
+export interface Theme {
+  colors: ColorTheme;
+}
 
 export interface LinkItem {
   title: string;
@@ -31,31 +32,15 @@ export interface LinkItem {
   url: string;
 }
 
-export declare const Links: LinkItem[];
-
-export declare function useTheme(): {
-  colors: ColorTheme;
-};
-
 export interface ThemedTextProps extends TextProps {
   color?: 'primary' | 'secondary';
-  style?: TextStyle | TextStyle[];
+  style?: StyleProp<TextStyle>;
   children?: React.ReactNode;
 }
-
-export declare function ThemedText(props: ThemedTextProps): React.JSX.Element;
 
 export interface HeaderProps {
   templateFileName?: string;
 }
-
-export declare function Header(props: HeaderProps): React.JSX.Element;
-
-export declare function LearnMoreLinks(): React.JSX.Element;
-
-export declare function ReloadInstructions(): React.JSX.Element;
-
-export declare function DebugInstructions(): React.JSX.Element;
 
 export interface SafeAreaInsets {
   top?: number;
@@ -68,8 +53,3 @@ export interface NewAppScreenProps {
   templateFileName?: string;
   safeAreaInsets?: SafeAreaInsets;
 }
-
-export declare function NewAppScreen(props: NewAppScreenProps): React.JSX.Element;
-
-export default NewAppScreen;
-

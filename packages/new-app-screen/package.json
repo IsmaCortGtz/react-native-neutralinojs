@@ -5,20 +5,20 @@
   "license": "MIT",
   "packageManager": "pnpm@12.6.0",
   "type": "module",
-  "main": "index.js",
-  "module": "index.js",
-  "types": "index.d.ts",
+  "main": "./dist/index.jsx",
+  "module": "./dist/index.jsx",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./index.d.ts",
-      "import": "./index.js",
-      "default": "./index.js"
-    }
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.jsx",
+      "default": "./dist/index.jsx"
+    },
+    "./package.json": "./package.json"
   },
   "files": [
-    "index.js",
-    "index.d.ts",
-    "assets/",
+    "dist",
+    "assets",
     "README.md"
   ],
   "author": {
@@ -51,10 +51,12 @@
     }
   },
   "scripts": {
-    "build": "tsc --noEmit",
+    "build": "tsc",
+    "clean": "rm -rf dist",
     "lint": "echo 'No lint specified'"
   },
   "devDependencies": {
+    "@types/react": "^19.3.0",
     "typescript": "^7.0.2"
   }
 }
