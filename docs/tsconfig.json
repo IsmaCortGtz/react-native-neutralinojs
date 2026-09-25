@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "types": ["vitepress/client"],
+    "skipLibCheck": true,
+    "strict": true,
+    "allowJs": true
+  },
+  "include": ["**/*", ".vitepress/**/*"],
+  "exclude": [".vitepress/cache", ".vitepress/dist", "node_modules"]
+}

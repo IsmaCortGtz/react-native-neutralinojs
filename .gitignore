@@ -6,3 +6,7 @@ tarballs/
 
 # pnpm
 .pnpm-debug.log*
+
+# VitePress
+docs/.vitepress/dist
+docs/.vitepress/cache
