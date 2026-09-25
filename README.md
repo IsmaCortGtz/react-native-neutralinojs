@@ -4,8 +4,11 @@
 [![pnpm](https://img.shields.io/badge/pnpm-12.6.0-F69220.svg)](https://pnpm.io/)
 [![React Native](https://img.shields.io/badge/React%20Native-0.70+-61DAFB.svg)](https://reactnative.dev/)
 [![Neutralinojs](https://img.shields.io/badge/Neutralinojs-v11+-ff8c00.svg)](https://neutralino.js.org/)
+[![Documentation](https://img.shields.io/badge/docs-website-brightgreen.svg)](https://ismacortgtz.is-a.dev/react-native-neutralinojs/)
 
 An ecosystem bringing **React Native** applications to the lightweight, cross-platform **[Neutralinojs](https://neutralino.js.org/)** desktop runtime.
+
+> 📚 **Official Documentation**: [https://ismacortgtz.is-a.dev/react-native-neutralinojs/](https://ismacortgtz.is-a.dev/react-native-neutralinojs/)
 
 ---
 
@@ -33,10 +36,10 @@ This project is organized as a **monorepo** managed with **pnpm workspaces**, tr
 
 ## 📦 Packages
 
-| Package                                                                                                                | Version                                                                                                                                                           | Alias                                                                                        | Docs                                                          |
-| :--------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- | :------------------------------------------------------------ |
-| [`react-native-neutralinojs`](https://www.npmjs.com/package/react-native-neutralinojs)                                 | [![npm version](https://img.shields.io/npm/v/react-native-neutralinojs)](https://www.npmjs.com/package/react-native-neutralinojs)                                 | N/A                                                                                          | [Documentation](packages/react-native-neutralinojs/README.md) |
-| [`@react-native-neutralinojs/new-app-screen`](https://www.npmjs.com/package/@react-native-neutralinojs/new-app-screen) | [![npm version](https://img.shields.io/npm/v/@react-native-neutralinojs/new-app-screen)](https://www.npmjs.com/package/@react-native-neutralinojs/new-app-screen) | [`@react-native/new-app-screen`](https://www.npmjs.com/package/@react-native/new-app-screen) | [Documentation](packages/new-app-screen/README.md)            |
+| Package                                                                                                                | Version                                                                                                                                                           | Alias                                                                                        | Docs                                                                                                                               |
+| :--------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| [`react-native-neutralinojs`](https://www.npmjs.com/package/react-native-neutralinojs)                                 | [![npm version](https://img.shields.io/npm/v/react-native-neutralinojs)](https://www.npmjs.com/package/react-native-neutralinojs)                                 | N/A                                                                                          | [Docs](https://ismacortgtz.is-a.dev/react-native-neutralinojs/) / [README](packages/react-native-neutralinojs/README.md)           |
+| [`@react-native-neutralinojs/new-app-screen`](https://www.npmjs.com/package/@react-native-neutralinojs/new-app-screen) | [![npm version](https://img.shields.io/npm/v/@react-native-neutralinojs/new-app-screen)](https://www.npmjs.com/package/@react-native-neutralinojs/new-app-screen) | [`@react-native/new-app-screen`](https://www.npmjs.com/package/@react-native/new-app-screen) | [Docs](https://ismacortgtz.is-a.dev/react-native-neutralinojs/guide/desktop-ui.html) / [README](packages/new-app-screen/README.md) |
 
 ### Upcoming / In-Development Packages
 
