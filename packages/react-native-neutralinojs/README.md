@@ -1,8 +1,10 @@
 # React Native for NeutralinoJS
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Made with TypeScript](https://img.shields.io/badge/made%20with-TypeScript-blue.svg) ![React Native Library](https://img.shields.io/badge/library-React%20Native-blue.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Made with TypeScript](https://img.shields.io/badge/made%20with-TypeScript-blue.svg) ![React Native Library](https://img.shields.io/badge/library-React%20Native-blue.svg) [![Documentation](https://img.shields.io/badge/docs-website-brightgreen.svg)](https://ismacortgtz.is-a.dev/react-native-neutralinojs/)
 
 Unofficial [`neutralinojs`](https://neutralino.js.org/) integration with the [`react-native-cli`](https://github.com/react-native-community/cli).
+
+> 📚 **Official Documentation**: [https://ismacortgtz.is-a.dev/react-native-neutralinojs/](https://ismacortgtz.is-a.dev/react-native-neutralinojs/)
 
 This tool allows you to export your `react-native` apps to a lightweight, cross-platform desktop application using `neutralinojs`. It serves as an alternative to heavier solutions like `react-native-windows` and `react-native-macos`.
 

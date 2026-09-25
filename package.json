@@ -2,6 +2,7 @@
   "name": "rn-neutralinojs-monorepo",
   "version": "0.0.0",
   "private": true,
+  "homepage": "https://ismacortgtz.is-a.dev/react-native-neutralinojs/",
   "scripts": {
     "build": "pnpm -r run build",
     "pack:all": "pnpm run build && mkdir -p tarballs && pnpm -r --filter=\"!rn-neutralinojs-monorepo\" pack --out tarballs/%s-%v.tgz",

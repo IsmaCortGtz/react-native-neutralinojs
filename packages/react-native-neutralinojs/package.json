@@ -16,6 +16,7 @@
     "react-native",
     "webview"
   ],
+  "homepage": "https://ismacortgtz.is-a.dev/react-native-neutralinojs/",
   "license": "MIT",
   "author": {
     "name": "Ismael Cortés Gutiérrez",
