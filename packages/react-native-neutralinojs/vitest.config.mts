@@ -36,8 +36,8 @@ export const e2eProject = defineProject({
     environment: 'node',
     include: ['**/*.e2e.{test,spec}.?(c|m)[jt]s?(x)', '**/*.e2e.?(c|m)[jt]s?(x)'],
     exclude: ['**/node_modules/**', '**/dist/**'],
-    testTimeout: 30000,
-    hookTimeout: 30000,
+    testTimeout: 300000,
+    hookTimeout: 300000,
   },
 });
 

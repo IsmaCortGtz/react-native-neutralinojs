@@ -68,8 +68,14 @@ pnpm install
 # Build all packages across workspaces
 pnpm build
 
-# Run tests across workspaces
+# Run all tests across workspaces
 pnpm test
+
+# Run unit tests only (<= 5s timeout)
+pnpm run test:unit
+
+# Run E2E tests only (<= 5m timeout)
+pnpm run test:e2e
 
 # Run linter across workspaces
 pnpm lint

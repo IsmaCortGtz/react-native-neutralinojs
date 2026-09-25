@@ -141,23 +141,21 @@ export default function CustomScreen() {
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  content: {
+    alignItems: 'center',
+    padding: 24,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 16,
+  },
+});
 ```
 
 > **Tip:** El alias permite que plantillas generadas automáticamente por React Native CLI (o librerías de terceros que consuman `@react-native/new-app-screen`) funcionen de inmediato sin tener que modificar sus importaciones en el código fuente.
-
-const styles = StyleSheet.create({
-content: {
-alignItems: 'center',
-padding: 24,
-},
-title: {
-fontSize: 20,
-fontWeight: 'bold',
-marginBottom: 16,
-},
-});
-
-```
 
 ---
 
@@ -167,10 +165,10 @@ marginBottom: 16,
 
 Componente principal de bienvenida.
 
-| Prop | Tipo | Por defecto | Descripción |
-| :--- | :--- | :--- | :--- |
-| `templateFileName` | `string` | `'App.tsx'` | Nombre del archivo de plantilla mencionado en las instrucciones. |
-| `safeAreaInsets` | `{ top?: number, bottom?: number, left?: number, right?: number }` | `{ top: 0, bottom: 0, left: 0, right: 0 }` | Márgenes seguros opcionales. |
+| Prop               | Tipo                                                               | Por defecto                                | Descripción                                                      |
+| :----------------- | :----------------------------------------------------------------- | :----------------------------------------- | :--------------------------------------------------------------- |
+| `templateFileName` | `string`                                                           | `'App.tsx'`                                | Nombre del archivo de plantilla mencionado en las instrucciones. |
+| `safeAreaInsets`   | `{ top?: number, bottom?: number, left?: number, right?: number }` | `{ top: 0, bottom: 0, left: 0, right: 0 }` | Márgenes seguros opcionales.                                     |
 
 ### Componentes y Utilidades Disponibles
 
@@ -184,8 +182,23 @@ Componente principal de bienvenida.
 
 ---
 
+## Testing
+
+Run tests with Vitest:
+
+```bash
+# Run all tests in package
+pnpm test
+
+# Run unit tests only (<= 5s timeout)
+pnpm run test:unit
+
+# Run E2E tests only (<= 5m / 300,000ms timeout)
+pnpm run test:e2e
+```
+
+---
+
 ## 📄 Licencia
 
 [MIT License](https://opensource.org/licenses/MIT) © Ismael Cortés Gutiérrez
-
-```

@@ -157,6 +157,21 @@ pnpm run build:neu
 npm run build:neu
 ```
 
+## Testing
+
+Run tests with Vitest:
+
+```bash
+# Run all tests in package
+pnpm test
+
+# Run unit tests only (<= 5s timeout)
+pnpm run test:unit
+
+# Run E2E tests only (<= 5m / 300,000ms timeout)
+pnpm run test:e2e
+```
+
 ## License
 
 This project is licensed under the MIT License.

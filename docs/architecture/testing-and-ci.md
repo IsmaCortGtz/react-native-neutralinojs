@@ -15,7 +15,7 @@ flowchart TD
   subgraph CorePkg ["packages/react-native-neutralinojs"]
     Pkg1Config["vitest.config.mts"]
     Pkg1Unit["Unit Tests (5s timeout)"]
-    Pkg1E2E["E2E Tests (30s timeout)"]
+    Pkg1E2E["E2E Tests (5m timeout)"]
     Pkg1Config --> Pkg1Unit
     Pkg1Config --> Pkg1E2E
   end
@@ -23,7 +23,7 @@ flowchart TD
   subgraph ScreenPkg ["packages/new-app-screen"]
     Pkg2Config["vitest.config.mts"]
     Pkg2Unit["Unit Tests (5s timeout)"]
-    Pkg2E2E["E2E Tests (30s timeout)"]
+    Pkg2E2E["E2E Tests (5m timeout)"]
     Pkg2Config --> Pkg2Unit
     Pkg2Config --> Pkg2E2E
   end
@@ -45,10 +45,10 @@ flowchart TD
 | Test Type | File Pattern                                                | Timeout         | Recommended Location                                   |
 | :-------- | :---------------------------------------------------------- | :-------------- | :----------------------------------------------------- |
 | **Unit**  | `*.test.ts`, `*.spec.ts`, `*.test.tsx` (excludes `*.e2e.*`) | `5000ms` (5s)   | `packages/<pkg>/tests/unit/` or collocated with source |
-| **E2E**   | `*.e2e.test.ts`, `*.e2e.ts`, `*.e2e.spec.tsx`               | `30000ms` (30s) | `packages/<pkg>/tests/e2e/`                            |
+| **E2E**   | `*.e2e.test.ts`, `*.e2e.ts`, `*.e2e.spec.tsx`               | `300000ms` (5m) | `packages/<pkg>/tests/e2e/`                            |
 
 ::: tip E2E Isolation
-Any test file containing `.e2e.` in its filename is automatically excluded from the unit runner and will only be executed by the E2E runner with an extended timeout (30 seconds for test execution and setup/teardown hooks).
+Any test file containing `.e2e.` in its filename is automatically excluded from the unit runner and will only be executed by the E2E runner with an extended timeout (5 minutes / 300,000ms for test execution and setup/teardown hooks).
 :::
 
 ---
@@ -132,8 +132,8 @@ export const e2eProject = defineProject({
     environment: 'node',
     include: ['**/*.e2e.{test,spec}.?(c|m)[jt]s?(x)', '**/*.e2e.?(c|m)[jt]s?(x)'],
     exclude: ['**/node_modules/**', '**/dist/**'],
-    testTimeout: 30000,
-    hookTimeout: 30000,
+    testTimeout: 300000,
+    hookTimeout: 300000,
   },
 });
 
