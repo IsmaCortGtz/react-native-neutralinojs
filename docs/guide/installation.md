@@ -98,7 +98,7 @@ yarn add @react-native-neutralinojs/new-app-screen
 
 :::
 
-_(See the [Desktop UI & Screens Guide](./desktop-ui) for aliasing setup)._
+_(See the [Desktop UI & Screens Guide](/guide/new-app-screen/v1/) for aliasing setup)._
 
 ---
 
