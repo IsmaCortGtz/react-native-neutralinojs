@@ -1,12 +1,20 @@
-# React Native Neutralinojs
+<p align="center">
+  <img src="docs/public/logo.svg" alt="React Native Neutralinojs Logo" width="128" height="128" />
+</p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![pnpm](https://img.shields.io/badge/pnpm-12.6.0-F69220.svg)](https://pnpm.io/)
-[![React Native](https://img.shields.io/badge/React%20Native-0.70+-61DAFB.svg)](https://reactnative.dev/)
-[![Neutralinojs](https://img.shields.io/badge/Neutralinojs-v11+-ff8c00.svg)](https://neutralino.js.org/)
-[![Documentation](https://img.shields.io/badge/docs-website-brightgreen.svg)](https://ismacortgtz.is-a.dev/react-native-neutralinojs/)
+<h1 align="center">React Native Neutralinojs</h1>
 
-An ecosystem bringing **React Native** applications to the lightweight, cross-platform **[Neutralinojs](https://neutralino.js.org/)** desktop runtime.
+<p align="center">
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
+  <a href="https://pnpm.io/"><img src="https://img.shields.io/badge/pnpm-12.6.0-F69220.svg" alt="pnpm" /></a>
+  <a href="https://reactnative.dev/"><img src="https://img.shields.io/badge/React%20Native-0.70+-61DAFB.svg" alt="React Native" /></a>
+  <a href="https://neutralino.js.org/"><img src="https://img.shields.io/badge/Neutralinojs-v11+-ff8c00.svg" alt="Neutralinojs" /></a>
+  <a href="https://ismacortgtz.is-a.dev/react-native-neutralinojs/"><img src="https://img.shields.io/badge/docs-website-brightgreen.svg" alt="Documentation" /></a>
+</p>
+
+<p align="center">
+  An ecosystem bringing <strong>React Native</strong> applications to the lightweight, cross-platform <strong><a href="https://neutralino.js.org/">Neutralinojs</a></strong> desktop runtime.
+</p>
 
 > 📚 **Official Documentation**: [https://ismacortgtz.is-a.dev/react-native-neutralinojs/](https://ismacortgtz.is-a.dev/react-native-neutralinojs/)
 
