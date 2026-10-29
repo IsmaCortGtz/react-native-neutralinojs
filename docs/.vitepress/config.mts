@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress';
+import { getGuideSidebar } from './packages';
 
 export default defineConfig({
   markdown: {
@@ -46,6 +47,7 @@ export default defineConfig({
       { text: 'Guide', link: '/guide/getting-started' },
       { text: 'Architecture', link: '/architecture/overview' },
       { text: 'Testing', link: '/architecture/testing-and-ci' },
+      { component: 'PackageVersionSelector' },
     ],
 
     sidebar: {
@@ -58,24 +60,9 @@ export default defineConfig({
           ],
         },
       ],
-      '/guide/': [
-        {
-          text: 'Getting Started',
-          items: [
-            { text: 'Overview & Requirements', link: '/guide/getting-started' },
-            { text: 'Installation', link: '/guide/installation' },
-          ],
-        },
-        {
-          text: 'Core Guides',
-          items: [
-            { text: 'CLI Commands', link: '/guide/cli-commands' },
-            { text: 'Configuration', link: '/guide/configuration' },
-            { text: 'Desktop UI & Screens', link: '/guide/desktop-ui' },
-            { text: 'Troubleshooting', link: '/guide/troubleshooting' },
-          ],
-        },
-      ],
+      '/guide/react-native-neutralinojs/v2/': getGuideSidebar('react-native-neutralinojs', 'v2'),
+      '/guide/new-app-screen/v1/': getGuideSidebar('new-app-screen', 'v1'),
+      '/guide/': getGuideSidebar(),
       '/architecture/': [
         {
           text: 'Architecture & Internals',
@@ -87,6 +74,7 @@ export default defineConfig({
             { text: 'Runtime Shim', link: '/architecture/runtime-shim' },
             { text: 'NewAppScreen Internals', link: '/architecture/new-app-screen' },
             { text: 'Testing & Monorepo Tooling', link: '/architecture/testing-and-ci' },
+            { text: 'Documentation & Versioning', link: '/architecture/documentation-system' },
           ],
         },
       ],
